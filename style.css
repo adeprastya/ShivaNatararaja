@@ -155,7 +155,7 @@ table {
   background-color: #292929;
 }
 :root *::-webkit-scrollbar-track {
-  background-color: #1a1a1a;
+  background-color: #292929;
 }
 :root *::-webkit-scrollbar-thumb {
   border-radius: 5px;
@@ -223,11 +223,18 @@ header nav ul li a:hover {
   color: #b7b7b7;
   transition: color 0.3s;
 }
+header .mobile {
+  display: none;
+}
 
 main aside {
   z-index: 1;
   position: fixed;
-  width: 15vw;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(10vw + 10vh);
   height: calc(100vh - (1vw + 6vh));
   margin: calc(1vw + 6vh) 0 0 0;
   padding: calc(3vw + 6vh) 1vw;
@@ -258,7 +265,7 @@ main aside a:hover {
   transition: color 0.3s;
 }
 main article {
-  margin-left: 15vw;
+  margin-left: calc(10vw + 10vh);
 }
 main article section {
   width: 85vw;
@@ -391,4 +398,64 @@ footer ul {
 footer ul a, footer ul li {
   font: 400 calc(10px + 4 * (100vw - 300px) / 700) "Raleway", sans-serif;
   color: #cacaca;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  header .logo {
+    justify-content: center;
+    width: 100%;
+  }
+  header nav {
+    display: none;
+  }
+  header .mobile {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: calc(1vw + 5vh);
+    height: calc(1vw + 6vh);
+  }
+  header .mobile div {
+    position: absolute;
+    width: calc(0.6vw + 3vh);
+    border: 1px solid #b7b7b7;
+    transition: transform 0.3s;
+  }
+  header .mobile div:nth-child(1) {
+    transform: translateY(-10px);
+  }
+  header .mobile div:nth-child(2) {
+    transform: translateY(0px);
+  }
+  header .mobile div:nth-child(3) {
+    transform: translateY(10px);
+  }
+  main aside {
+    width: 50vw;
+    transform: translateX(-150%);
+    transition: transform 0.3s;
+  }
+  main aside a {
+    font-size: calc(16px + 4 * (100vw - 300px) / 700);
+  }
+  main article {
+    margin-left: 0;
+    transition: filter 0.3s;
+  }
+  main article section {
+    width: 100vw;
+  }
+  main article section:nth-child(1) h2 {
+    width: 75%;
+    margin-bottom: calc(2vw + 4vh);
+    font-size: calc(32px + 4 * (100vw - 300px) / 700 + 4px);
+  }
+  main article section:nth-child(1) p {
+    width: 75%;
+    font-size: calc(16px + 4 * (100vw - 300px) / 700 + 4px);
+  }
 }/*# sourceMappingURL=style.css.map */

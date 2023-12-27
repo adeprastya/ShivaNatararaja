@@ -177,7 +177,7 @@ $bgcol3: #343434;
     background-color: $bgcol2;
   }
   *::-webkit-scrollbar-track {
-    background-color: $bgcol1;
+    background-color: $bgcol2;
   }
   *::-webkit-scrollbar-thumb {
     border-radius: 5px;
@@ -260,6 +260,10 @@ header {
       }
     }
   }
+
+  .mobile {
+    display: none;
+  }
 }
 
 
@@ -268,8 +272,13 @@ main {
   aside {
     z-index: 1;
     position: fixed;
+    left: 0;
 
-    width: 15vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: calc(10vw + 10vh);
     height: calc(100vh - calc(1vw + 6vh));
     margin: calc(1vw + 6vh) 0 0 0;
     padding: calc(3vw + 6vh) 1vw;
@@ -309,7 +318,7 @@ main {
 
 
   article {
-    margin-left: 15vw;
+    margin-left: calc(10vw + 10vh);
 
     section {
       width: 85vw;
@@ -483,6 +492,87 @@ footer {
     a, li {
       font: 400 $fontsize0 $fontfam2;
       color: $fontcol2;
+    }
+  }
+}
+
+
+
+
+@media (max-aspect-ratio: 1/1) {
+  header {
+    .logo {
+      justify-content: center;
+      width: 100%;
+    }
+
+    nav {
+      display: none;
+    }
+
+    .mobile {
+      z-index: 10;
+      position: fixed;
+      top: 0;
+      right: 0;
+      
+      display: flex;
+      justify-items: center;
+      align-items: center;
+
+      width: calc(1vw + 5vh);
+      height: calc(1vw + 6vh);
+
+      div {
+        position: absolute;
+        width: calc(.6vw + 3vh);
+        border: 1px solid $fontcol3;
+        transition: transform .3s;
+
+        &:nth-child(1) {
+          transform: translateY(-10px);
+        }
+        &:nth-child(2) {
+          transform: translateY(0px);
+        }
+        &:nth-child(3) {
+          transform: translateY(10px);
+        }
+      }
+    }
+  }
+
+  main {
+    aside {
+      width: 50vw;
+      transform: translateX(-150%);
+      transition: transform .3s;
+      
+      a {
+        font-size: $fontsize1;
+      }
+    }
+
+    article {
+      margin-left: 0;
+      transition: filter .3s;
+
+      section {
+        width: 100vw;
+
+        &:nth-child(1) {
+          h2 {
+            width: 75%;
+            margin-bottom: calc(2vw + 4vh);
+            font-size: calc($fontsize3 + 4px);
+          }
+          
+          p {
+            width: 75%;
+            font-size: calc($fontsize1 + 4px);
+          }
+        }
+      }
     }
   }
 }
