@@ -200,6 +200,7 @@ header {
   padding: calc(0.6vw + 0.3vh) calc(1vw + .5vh);
   box-sizing: border-box;
 
+  overflow: hidden;
   backdrop-filter: blur(4px);
   box-shadow: inset 0 -3px 4px -4px #ffffff35;
   background: #ffffff15;
@@ -227,7 +228,7 @@ header {
         height: calc(1vw * 2 / 3 + 6vh * 2 / 3);
         width: calc(1vw * 2 / 3 + 6vh * 2 / 3);
         border-radius: 50%;
-        background-color: $fontcol3;
+        filter: drop-shadow(0 0 15px $fontcol1);
       }
     }
   }
@@ -275,13 +276,14 @@ main {
     left: 0;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     width: calc(10vw + 10vh);
     height: calc(100vh - calc(1vw + 6vh));
     margin: calc(1vw + 6vh) 0 0 0;
-    padding: calc(3vw + 6vh) 1vw;
+    padding: calc(2vw + 4vh) 1vw;
     box-sizing: border-box;
 
     background: $bgcol1;
@@ -312,6 +314,28 @@ main {
       &:hover {
         color: $fontcol1;
         transition: color .3s;
+      }
+    }
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: calc(1vw + 1vh);
+      transform: translateY(calc(1vw + .5vh));
+      
+      img {
+        width: calc(1vw + 3vh);
+        height: calc(1vw + 3vh);
+        object-fit: cover;
+        border-radius: 50%;
+        filter: brightness(70%) grayscale(.25);
+      }
+      
+      figcaption {
+        font: 400 $fontsize0 $fontfam2;
+        transform: translateY(calc(.3vw + .3vh));
       }
     }
   }
